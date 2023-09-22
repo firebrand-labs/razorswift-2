@@ -13,7 +13,7 @@ import TickerComponent from "./TickerComponent";
 import styled from "@emotion/styled";
 import { TickerBoxData } from "@/constants/Homepage/TickerBoxData";
 const TypographyOne = styled(Typography)(({ theme }) => ({}));
-
+//hello
 const HeroSection = () => {
   const banimg = {
     width: "clamp(370px, 63.5vw, 1210px)",
