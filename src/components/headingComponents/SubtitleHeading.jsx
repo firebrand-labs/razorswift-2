@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { useEffect, useState } from 'react';
 const Paragraph = styled(Typography)(({ theme }) => ({
   fontSize: '14px',
   fontWeight: 500,
@@ -18,9 +18,15 @@ const Paragraph = styled(Typography)(({ theme }) => ({
   },
 }));
 
-function SubtitleHeading({ children, ...props }) {
+function SubtitleHeading({ children, WidthFull, ...props }) {
+  const [widthNum, setWidthNum] = useState('');
+  useEffect(() => {
+    setWidthNum(WidthFull);
+    console.log('WidthFull inside SubtitleHeading:', WidthFull);
+  }, [WidthFull]);
+  console.log(widthNum);
   return (
-    <Paragraph variant="subtitle1" {...props}>
+    <Paragraph style={{ width: `${widthNum}` }} variant="subtitle1" {...props}>
       {children}
     </Paragraph>
   );

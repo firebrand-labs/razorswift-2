@@ -1,14 +1,22 @@
-'use client'
+'use client';
 
-import { Box, Container, Grid, Paper, Stack, Typography } from '@mui/material'
-import Image from 'next/image'
-import PrimaryFillButton from '../buttonComponents/PrimaryFillButton'
-import CustomImage from '../globalComponents/CustomImage/CustomImage'
-import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading'
-import SecondaryHeading from '../headingComponents/SecondaryHeading'
-import SubtitleHeading from '../headingComponents/SubtitleHeading'
-
+import { Box, Container, Grid, Paper, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
+import PrimaryFillButton from '../buttonComponents/PrimaryFillButton';
+import CustomImage from '../globalComponents/CustomImage/CustomImage';
+import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
+import SecondaryHeading from '../headingComponents/SecondaryHeading';
+import SubtitleHeading from '../headingComponents/SubtitleHeading';
+import { useEffect, useState } from 'react';
 function CareerDropDownBody({ dropDownBodyData, ...props }) {
+  const [WidthFull, setWidthFull] = useState();
+  const headingvalue = function (value) {
+    console.log(value);
+    setWidthFull(value);
+    console.log(WidthFull);
+  };
+
+  console.log(WidthFull);
   return (
     <Box
       {...props}
@@ -48,7 +56,10 @@ function CareerDropDownBody({ dropDownBodyData, ...props }) {
                   objectFit: 'unset',
                 }}
               />
-              <SecondaryHeading sx={{ color: 'primaryPalette.primaryBlack' }}>
+              <SecondaryHeading
+                headingvalue={headingvalue}
+                sx={{ color: 'primaryPalette.primaryBlack' }}
+              >
                 {dropDownBodyData.title}
               </SecondaryHeading>
               <Typography
@@ -63,6 +74,7 @@ function CareerDropDownBody({ dropDownBodyData, ...props }) {
                 {dropDownBodyData.highLightedTitle}
               </Typography>
               <SubtitleHeading
+                WidthFull={WidthFull}
                 sx={{
                   color: 'primaryPalette.primaryBlack',
                 }}
@@ -180,7 +192,7 @@ function CareerDropDownBody({ dropDownBodyData, ...props }) {
         </Grid>
       </Container>
     </Box>
-  )
+  );
 }
 
-export default CareerDropDownBody
+export default CareerDropDownBody;
